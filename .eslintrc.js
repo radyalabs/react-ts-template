@@ -1,23 +1,26 @@
 module.exports = {
-  'env': {
-    'browser': true,
-    'es2021': true,
-    'node': true,
+  env: {
+    browser: true,
+    es2021: true,
+    node: true,
   },
-  'extends': [
+  extends: [
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
+    'airbnb',
+    'airbnb/hooks',
+    'airbnb-typescript',
   ],
   overrides: [
     // override "simple-import-sort" config
     {
-      'files': ['*.js', '*.jsx', '*.ts', '*.tsx'],
-      'rules': {
+      files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
+      rules: {
         'simple-import-sort/imports': [
           'error',
           {
-            'groups': [
+            groups: [
               // Packages `react` related packages come first.
               ['^react', '^@?\\w'],
               // Internal packages.
@@ -29,42 +32,46 @@ module.exports = {
               // Other relative imports. Put same-folder imports and `.` last.
               ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
               // Style imports.
-              ['^.+\\.?(css)$']
-            ]
-          }
-        ]
-      }
-    }
+              ['^.+\\.?(css)$'],
+            ],
+          },
+        ],
+      },
+    },
   ],
-  'parser': '@typescript-eslint/parser',
-  'parserOptions': {
-    'ecmaVersion': 'latest',
-    'sourceType': 'module'
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: './tsconfig.json',
+    parser: '@typescript-eslint/parser',
   },
-  'plugins': [
+  plugins: [
     'react',
     '@typescript-eslint',
-    'eslint-plugin-simple-import-sort'
+    'eslint-plugin-simple-import-sort',
   ],
-  'rules': {
-    'indent': [
+  rules: {
+    indent: [
       'warn',
-      2
+      2,
     ],
     'linebreak-style': [
       'error',
-      'unix'
+      'unix',
     ],
-    'quotes': [
+    quotes: [
       'error',
-      'single'
+      'single',
     ],
-    'semi': [
+    semi: [
       'error',
-      'always'
+      'always',
     ],
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
-    '@typescript-eslint/consistent-type-imports': 'warn'
-  }
+    '@typescript-eslint/consistent-type-imports': 'warn',
+    '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
+    '@typescript-eslint/no-explicit-any': 'error',
+  },
 };
