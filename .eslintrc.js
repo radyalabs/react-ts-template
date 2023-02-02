@@ -62,10 +62,7 @@ module.exports = {
       'warn',
       2,
     ],
-    'linebreak-style': [
-      'error',
-      'unix',
-    ],
+    'linebreak-style': 'off',
     quotes: [
       'error',
       'single',
@@ -81,6 +78,6 @@ module.exports = {
     '@typescript-eslint/consistent-type-imports': 'warn',
     '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
     '@typescript-eslint/no-explicit-any': 'error',
-    'react/button-has-type': 'off',
+    'react/button-has-type': 'warn',
   },
 };
