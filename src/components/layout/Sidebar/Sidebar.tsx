@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import mark from 'assets/brand_mark_primary.png';
 import logo from 'assets/brand_primary.png';
 
@@ -17,28 +18,25 @@ const Sidebar = () => {
     >
       <div className="overflow-y-auto bg-gray-50 h-full px-2">
         <div className="flex justify-center mb-10 p-2">
-          <a href="/">
+          <Link to="/">
             <img src={!isCollapsed ? logo : mark} className="min-h-[5rem] h-5 w-auto object-contain" alt="Brand Logo" />
-          </a>
+          </Link>
         </div>
         <ul className="space-y-2 text-gray-600">
           <li>
-            <a
-              href="/"
-              className={`flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-200 ${isActive('/') && 'bg-gray-100'}`}
-            >
+            <Link to="/" className={`flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-200 ${isActive('/') && 'bg-gray-100'}`}>
               <span className="ml-3">{isCollapsed ? <Book /> : 'List'}</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/compare" className="flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-200">
+            <Link to="/compare" className="flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-200">
               <span className="ml-3">{isCollapsed ? <ArrowRounded /> : 'Compare'}</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/bookmark" className="flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-200">
+            <Link to="/bookmark" className="flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-200">
               <span className="ml-3">{isCollapsed ? <Bookmark /> : 'Bookmark'}</span>
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
