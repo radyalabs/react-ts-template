@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes } from 'react-router-dom';
 
 import App from './App';
@@ -7,7 +7,10 @@ import reportWebVitals from './reportWebVitals';
 
 import './index.css';
 
-ReactDOM.render(
+const container = document.getElementById('root');
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+const root = createRoot(container!);
+root.render(
   <React.StrictMode>
     <BrowserRouter>
       <React.Suspense fallback={<div>Loading</div>}>
@@ -16,7 +19,6 @@ ReactDOM.render(
       <App />
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root'),
 );
 
 // If you want to start measuring performance in your app, pass a function
