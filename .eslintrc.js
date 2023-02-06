@@ -23,7 +23,7 @@ module.exports = {
               // Packages `react` related packages come first.
               ['^react', '^@?\\w'],
               // Internal packages.
-              ['^(@|components)(/.*|$)'],
+              ['^(@|assets|components|contexts|constants|helpers|types|utils|hooks|reducers|queries|pages|styles)(/.*|$)'],
               // Side effect imports.
               ['^\\u0000'],
               // Parent imports. Put `..` last.
@@ -58,6 +58,17 @@ module.exports = {
     'eslint-plugin-simple-import-sort',
   ],
   rules: {
+    'import/extensions': ['error', 'ignorePackages',
+      {
+        pattern: {
+          js: 'never',
+          ts: 'never',
+          jsx: 'never',
+          tsx: 'never',
+        },
+      },
+    ],
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     indent: [
       'warn',
       2,
